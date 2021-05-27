@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: cpp.features.FeaturesRunner
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.534 s <<< FAILURE! - in cpp.features.FeaturesRunner
-testTags  Time elapsed: 0.532 s  <<< ERROR!
-java.lang.RuntimeException: not found: cpp/features/tags.feature
-

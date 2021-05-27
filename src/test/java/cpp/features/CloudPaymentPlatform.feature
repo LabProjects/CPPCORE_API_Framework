@@ -1,10 +1,10 @@
 Feature: Cloud Payment Platform services
 
   Background:
-    * url 'http://localhost:12000'
+    * url 'http://localhost:12000/'
 
   Scenario Outline: Verify the scenario where <ScenarioName>
-    Given path GloudPaymentsPlatformBase
+    Given path 'payments/sale'
     And header x-request-id = "0000007321"
     And request
     """
@@ -61,7 +61,7 @@ Feature: Cloud Payment Platform services
       | Amount is valid and Pan is invalid    | 9826003801000139420 | 1000   | PPT19000003    | {"clientDetails":{"type":"PayPoint","version":"v1.0.0","clientDefinedData":{"xRequestId":null,"operatingSystem":"Mac"}},"orderDetails":{"reference":"ORD-REF-001","orderStatus":"FailedVend","items":[{"pan":"#(Pan)","panType":"Smets1","amount":"#(parseInt(Amount))","uniqueReference":null,"uniqueReferenceFormatted":null,"errors":["#ignore"]}]},"paymentDetails":{"clientPaymentReference":"PAY-REF-001","paymentProviderReference":null,"authorisationAmount":"#(parseInt(Amount))","captureAmount":0,"paymentStatus":"Reversed"},"confirmationDetails":{"emailSent":null,"smsSent":null},"errors":["#ignore"],"responseCode":"DeclinedCouldNotVend"}             |
 
   Scenario Outline: Verify the scenario where Amount is null or set to Zero
-    Given path GloudPaymentsPlatformBase
+    Given path 'payments/sale'
     And header x-request-id = "0000007321"
     And request
     """

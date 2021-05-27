@@ -1,11 +1,11 @@
 Feature: PayPointBFF services
 
   Background:
-    * url 'http://localhost:17001'
+    * url 'http://localhost:17001/'
     * call read('CommonFunctions.feature')
 
   Scenario Outline: Verify the scenario where <ScenarioName>
-    Given path PayPointBFFBase
+    Given path 'api/PayPoint/Vend'
     And header x-request-id = "0000007321"
     And request
     """
@@ -27,7 +27,7 @@ Feature: PayPointBFF services
       | Fields/rows are exchanged                             | 9826003801000139425 | 1000   | null           | { "transaction_id": "#(Transaction_ID)", "amount": '#(parseInt(Amount))', "pan": "#(Pan)", "code": "#ignore", "message": "The Payment was successful. The account will be updated in maximum 10 min.", "response_code": "00" } |
 
   Scenario Outline: Verify the scenario where <ScenarioName>
-    Given path PayPointBFFBase
+    Given path 'api/PayPoint/Vend'
     And header x-request-id = "0000007321"
     And request
     """
@@ -50,7 +50,7 @@ Feature: PayPointBFF services
       | Amount is negative and both Pan and Transaction ID are valid     | 9826003801000139425 | -1000  | PPT19000003    | {"transaction_id":null,"amount":0,"pan":null,"code":null,"message":"#ignore","response_code":"05"} |
 
   Scenario Outline: Verify <ScenarioName>
-    Given path PayPointBFFBase
+    Given path 'api/PayPoint/Vend'
     And header x-request-id = "0000007321"
     And request
     """

@@ -1,11 +1,11 @@
 Feature: PayPointBFF services
 
   Background:
-    * url 'http://localhost:17002'
+    * url 'http://localhost:17002/'
     * call read('CommonFunctions.feature')
 
   Scenario Outline: Verify the scenario where <ScenarioName>
-    Given path IVRBase
+    Given path 'api/IvrPrePay/VendTopUp'
     And header x-request-id = "0000007321"
     And request
     """
@@ -27,7 +27,7 @@ Feature: PayPointBFF services
       | Fields/rows are exchanged                              | 9826003801000139425 | 5000   | payment-token | { "error": null, "paymentExpected": '#(parseInt(Credit))', "paymentTaken": '#(parseInt(Credit))', "utrn": "#ignore", "requestSucceeded": true } |
 
   Scenario Outline: Verify the scenario where <ScenarioName>
-    Given path IVRBase
+    Given path 'api/IvrPrePay/VendTopUp'
     And header x-request-id = "0000007321"
     And request
     """
@@ -52,7 +52,7 @@ Feature: PayPointBFF services
 
 
   Scenario Outline: Verify <ScenarioName>
-    Given path IVRBase
+    Given path 'api/IvrPrePay/VendTopUp'
     And header x-request-id = "0000007321"
     And request
     """
